@@ -26,7 +26,7 @@ export default function Navbar() {
 
 
   return (
-    <div className='flex flex-col w-scree'>
+    <div className='flex flex-col w-screen'>
         <div className='h-screen'
         style={{backgroundImage: `url(${headerImage})`, 
         backgroundPosition: "center", 
@@ -35,14 +35,14 @@ export default function Navbar() {
         >
         <div className='flex justify-between text-white items-center px-5 py-8'>
           <h1 className='text-xl font-extrabold'><a href="#">sunnyside</a></h1>
-          <nav className={`sm:block sm:absolute ${toggleMennu ? "sm:-top-60" : "sm:top-16"} duration-200 delay-150 sm:pt- sm:bg-white rounded sm:w-[89%] sm:py-11 sm:text-[#818498] sm:text-center
+          <nav className={`sm:block sm:absolute z-[21] ${toggleMennu ? "sm:-top-60" : "sm:top-16"} duration-200 delay-50 sm:pt- sm:bg-white rounded sm:w-[89%] sm:py-11 sm:text-[#818498] sm:text-center
             flex list-none text-sm font-barlow hover:cursor-pointer`}>
             <li className='px-4 py-2'><a href="#">Projects</a></li>
             <li className='px-4 py-2'><a href="#">Services</a></li>
             <li className='px-4 py-2'><a href="#">About</a></li>
             <li className='px-4 py-2 text-[#818498] bg-white rounded-full uppercase hover:text-white hover:bg-[#a7abae] sm:hover:bg-[#fad400] sm:hover:text-black'><a href="#">Contact</a></li>
           </nav>
-          <div className='md:hidden lg:hidden'><HiMenu className='text-3xl font-thin' onClick={handleToggle}/></div>
+          <div className='md:hidden lg:hidden'><HiMenu className='relative z-[21] text-3xl font-thin ' onClick={handleToggle}/></div>
         </div>
         <div className='flex flex-col items-center py-4 text-white font-fraunces'>
           <h1 className='text-3xl font-bold uppercase tracking-widest mb-12'>We are creatives</h1>
@@ -161,6 +161,10 @@ export default function Navbar() {
           <BsPinterest/>
         </div>
       </div>
+      {
+        toggleMennu ? ("") :
+        ( <div  onClick={handleToggle} className='sm:bg-black/60 absolute top-0 w-[100%] h-[250rem] z-20 duration-200'></div>)
+      }
     </div>
 
   )
